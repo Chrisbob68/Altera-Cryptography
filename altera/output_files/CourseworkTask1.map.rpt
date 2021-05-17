@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CourseworkTask1
-Fri Apr 30 17:33:03 2021
+Mon May 17 18:28:17 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -10,7 +10,20 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Logic Cells Representing Combinational Loops
+  9. Registers Removed During Synthesis
+ 10. Removed Registers Triggering Further Register Optimizations
+ 11. General Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Port Connectivity Checks: "xtea_dec:dec|xtea_dec2_enc1:dec2"
+ 14. Port Connectivity Checks: "xtea_dec:dec|xtea_dec1_enc2:dec1"
+ 15. Port Connectivity Checks: "xtea_dec:dec|xtea_sum:sumblock"
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -34,22 +47,27 @@ https://fpgasoftware.intel.com/eula.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Fri Apr 30 17:33:03 2021           ;
-; Quartus Prime Version       ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
-; Revision Name               ; CourseworkTask1                             ;
-; Top-level Entity Name       ; xtea_top                                    ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Mon May 17 18:28:17 2021       ;
+; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
+; Revision Name                   ; CourseworkTask1                             ;
+; Top-level Entity Name           ; xtea_top                                    ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 257                                         ;
+; Total pins                      ; 388                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -148,11 +166,335 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 12          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 12          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-12        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                             ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                                      ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+; xtea_dec1_enc2.vhd               ; yes             ; User VHDL File  ; C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd ;         ;
+; xtea_dec2_enc1.vhd               ; yes             ; User VHDL File  ; C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd ;         ;
+; xtea_top.vhd                     ; yes             ; User VHDL File  ; C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd       ;         ;
+; xtea_dec.vhd                     ; yes             ; User VHDL File  ; C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd       ;         ;
+; xtea_sum.vhd                     ; yes             ; User VHDL File  ; C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_sum.vhd       ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------------------------------------------+---------+
+
+
++------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                      ;
++---------------------------------------------+--------------------+
+; Resource                                    ; Usage              ;
++---------------------------------------------+--------------------+
+; Estimate of Logic utilization (ALMs needed) ; 197                ;
+;                                             ;                    ;
+; Combinational ALUT usage for logic          ; 391                ;
+;     -- 7 input functions                    ; 1                  ;
+;     -- 6 input functions                    ; 2                  ;
+;     -- 5 input functions                    ; 1                  ;
+;     -- 4 input functions                    ; 129                ;
+;     -- <=3 input functions                  ; 258                ;
+;                                             ;                    ;
+; Dedicated logic registers                   ; 257                ;
+;                                             ;                    ;
+; I/O pins                                    ; 388                ;
+;                                             ;                    ;
+; Total DSP Blocks                            ; 0                  ;
+;                                             ;                    ;
+; Maximum fan-out node                        ; xtea_dec:dec|State ;
+; Maximum fan-out                             ; 263                ;
+; Total fan-out                               ; 2432               ;
+; Average fan-out                             ; 1.71               ;
++---------------------------------------------+--------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                               ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
+; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name    ; Library Name ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
+; |xtea_top                   ; 391 (0)             ; 257 (0)                   ; 0                 ; 0          ; 388  ; 0            ; |xtea_top                                  ; xtea_top       ; work         ;
+;    |xtea_dec:dec|           ; 391 (263)           ; 257 (1)                   ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec                     ; xtea_dec       ; work         ;
+;       |xtea_dec1_enc2:dec1| ; 64 (64)             ; 128 (128)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1 ; xtea_dec1_enc2 ; work         ;
+;       |xtea_dec2_enc1:dec2| ; 64 (64)             ; 128 (128)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2 ; xtea_dec2_enc1 ; work         ;
++-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++--------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops                 ;
++--------------------------------------------------------+-----+
+; Logic Cell Name                                        ;     ;
++--------------------------------------------------------+-----+
+; xtea_dec:dec|Add0~0                                    ;     ;
+; xtea_dec:dec|s_iterator[3]~0                           ;     ;
+; xtea_dec:dec|s_iterator[2]~1                           ;     ;
+; xtea_dec:dec|s_iterator[1]~2                           ;     ;
+; xtea_dec:dec|s_iterator[0]~3                           ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|Add0~0                ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[1]~0       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[2]~1       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[3]~2       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[4]~3       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[5]~4       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[6]~5       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[7]~6       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[8]~7       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[9]~8       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[10]~9      ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[11]~10     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[12]~11     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[13]~12     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[14]~13     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[15]~14     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[16]~15     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[17]~16     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[18]~17     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[19]~18     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[20]~19     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[21]~20     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[22]~21     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[23]~22     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[24]~23     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[25]~24     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[26]~25     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[27]~26     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[28]~27     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[29]~28     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y1_current[30]~29     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|Add0~1                ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|Add1~0                ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[1]~0       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[2]~1       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[3]~2       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[4]~3       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[5]~4       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[6]~5       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[7]~6       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[8]~7       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[9]~8       ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[10]~9      ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[11]~10     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[12]~11     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[13]~12     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[14]~13     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[15]~14     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[16]~15     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[17]~16     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[18]~17     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[19]~18     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[20]~19     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[21]~20     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[22]~21     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[23]~22     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[24]~23     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[25]~24     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[26]~25     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[27]~26     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[28]~27     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[29]~28     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|z0_current[30]~29     ;     ;
+; xtea_dec:dec|xtea_dec1_enc2:dec1|Add1~1                ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|Add1~0                ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[1]~0       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[2]~1       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[3]~2       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[4]~3       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[5]~4       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[6]~5       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[7]~6       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[8]~7       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[9]~8       ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[10]~9      ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[11]~10     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[12]~11     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[13]~12     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[14]~13     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[15]~14     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[16]~15     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[17]~16     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[18]~17     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[19]~18     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[20]~19     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[21]~20     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[22]~21     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[23]~22     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[24]~23     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[25]~24     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[26]~25     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[27]~26     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[28]~27     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[29]~28     ;     ;
+; xtea_dec:dec|xtea_dec2_enc1:dec2|y0_current[30]~29     ;     ;
+; Number of logic cells representing combinational loops ; 133 ;
++--------------------------------------------------------+-----+
+Table restricted to first 100 entries. Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++---------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                    ;
++----------------------------------------------+----------------------------------------+
+; Register name                                ; Reason for Removal                     ;
++----------------------------------------------+----------------------------------------+
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[0..4]   ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[5]      ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[6,7]    ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[8..10]  ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[11]     ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[12,13]  ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[14,15]  ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[16..19] ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[20]     ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[21..23] ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[24]     ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[25,26]  ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[27..29] ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[30,31]  ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[0]      ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[1,2]    ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[3..5]   ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[6]      ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[7,8]    ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[9,10]   ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[11..14] ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[15]     ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[16..18] ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[19]     ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[20,21]  ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[22..24] ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[25..28] ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[29,30]  ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|delta[31]     ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[0..2]     ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[3,4]      ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[5,6]      ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[7]        ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[8]        ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[9]        ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[10..13]   ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[14]       ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[15..18]   ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[19]       ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[20,21]    ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[22]       ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[23]       ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[24..26]   ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[27]       ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[28]       ; Stuck at GND due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[29]       ; Stuck at VCC due to stuck port data_in ;
+; xtea_dec:dec|xtea_sum:sumblock|sum[30,31]    ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 96       ;                                        ;
++----------------------------------------------+----------------------------------------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                           ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; Register name                           ; Reason for Removal        ; Registers Removed due to This Register                                          ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+; xtea_dec:dec|xtea_sum:sumblock|s_sum[0] ; Stuck at GND              ; xtea_dec:dec|xtea_sum:sumblock|sum[23], xtea_dec:dec|xtea_sum:sumblock|sum[24], ;
+;                                         ; due to stuck port data_in ; xtea_dec:dec|xtea_sum:sumblock|sum[25], xtea_dec:dec|xtea_sum:sumblock|sum[26], ;
+;                                         ;                           ; xtea_dec:dec|xtea_sum:sumblock|sum[27], xtea_dec:dec|xtea_sum:sumblock|sum[28], ;
+;                                         ;                           ; xtea_dec:dec|xtea_sum:sumblock|sum[29], xtea_dec:dec|xtea_sum:sumblock|sum[30], ;
+;                                         ;                           ; xtea_dec:dec|xtea_sum:sumblock|sum[31]                                          ;
++-----------------------------------------+---------------------------+---------------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 257   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 1     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+; 3:1                ; 128 bits  ; 256 LEs       ; 256 LEs              ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|data_word_out[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "xtea_dec:dec|xtea_dec2_enc1:dec2"                                                                                                                   ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                                                                                                                      ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; dec_enc_flag ; Input ; Info     ; Stuck at VCC                                                                                                                                 ;
+; key          ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "xtea_dec:dec|xtea_dec1_enc2:dec1"                                                                                                                   ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port         ; Type  ; Severity ; Details                                                                                                                                      ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; dec_enc_flag ; Input ; Info     ; Stuck at VCC                                                                                                                                 ;
+; key          ; Input ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++--------------+-------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Port Connectivity Checks: "xtea_dec:dec|xtea_sum:sumblock" ;
++--------------+-------+----------+--------------------------+
+; Port         ; Type  ; Severity ; Details                  ;
++--------------+-------+----------+--------------------------+
+; dec_enc_flag ; Input ; Info     ; Stuck at VCC             ;
++--------------+-------+----------+--------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 257                         ;
+;     CLR               ; 1                           ;
+;     plain             ; 256                         ;
+; arriav_lcell_comb     ; 392                         ;
+;     arith             ; 128                         ;
+;         2 data inputs ; 36                          ;
+;         3 data inputs ; 92                          ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 263                         ;
+;         0 data inputs ; 1                           ;
+;         2 data inputs ; 1                           ;
+;         3 data inputs ; 129                         ;
+;         4 data inputs ; 129                         ;
+;         5 data inputs ; 1                           ;
+;         6 data inputs ; 2                           ;
+; boundary_port         ; 388                         ;
+;                       ;                             ;
+; Max LUT depth         ; 4.10                        ;
+; Average LUT depth     ; 2.12                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,35 +503,178 @@ https://fpgasoftware.intel.com/eula.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Fri Apr 30 17:32:58 2021
+    Info: Processing started: Mon May 17 18:28:11 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CourseworkTask1 -c CourseworkTask1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
-Error (10500): VHDL syntax error at xtea_dec1_enc2.vhd(37) near text ")";  expecting "(", or "'", or "." File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 37
-Error (10500): VHDL syntax error at xtea_dec1_enc2.vhd(38) near text ")";  expecting "(", or "'", or "." File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 38
-Error (10500): VHDL syntax error at xtea_dec1_enc2.vhd(43) near text "else";  expecting "end", or "(", or an identifier ("else" is a reserved keyword), or a concurrent statement File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 43
-Error (10500): VHDL syntax error at xtea_dec1_enc2.vhd(46) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 46
-Info (12021): Found 0 design units, including 0 entities, in source file xtea_dec1_enc2.vhd
-Error (10500): VHDL syntax error at xtea_dec2_enc1.vhd(36) near text ")";  expecting "(", or "'", or "." File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 36
-Error (10500): VHDL syntax error at xtea_dec2_enc1.vhd(37) near text ")";  expecting "(", or "'", or "." File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 37
-Error (10500): VHDL syntax error at xtea_dec2_enc1.vhd(42) near text "else";  expecting "end", or "(", or an identifier ("else" is a reserved keyword), or a concurrent statement File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 42
-Error (10500): VHDL syntax error at xtea_dec2_enc1.vhd(45) near text "if";  expecting ";", or an identifier ("if" is a reserved keyword), or "architecture" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 45
-Info (12021): Found 0 design units, including 0 entities, in source file xtea_dec2_enc1.vhd
-Warning (12019): Can't analyze file -- file Initial Info/xtea material/xtea_tb_duplex.vhd is missing
-Warning (12019): Can't analyze file -- file Initial Info/xtea material/xtea_tb.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file xtea_dec1_enc2.vhd
+    Info (12022): Found design unit 1: xtea_dec1_enc2-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 23
+    Info (12023): Found entity 1: xtea_dec1_enc2 File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 7
+Info (12021): Found 2 design units, including 1 entities, in source file xtea_dec2_enc1.vhd
+    Info (12022): Found design unit 1: xtea_dec2_enc1-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 23
+    Info (12023): Found entity 1: xtea_dec2_enc1 File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file xtea_top.vhd
     Info (12022): Found design unit 1: xtea_top-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 20
     Info (12023): Found entity 1: xtea_top File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 6
-Info (12021): Found 2 design units, including 1 entities, in source file xtea_enc.vhd
-    Info (12022): Found design unit 1: xtea_dec-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_enc.vhd Line: 23
-    Info (12023): Found entity 1: xtea_dec File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_enc.vhd Line: 9
+Info (12021): Found 0 design units, including 0 entities, in source file xtea_enc.vhd
 Info (12021): Found 2 design units, including 1 entities, in source file xtea_dec.vhd
-    Info (12022): Found design unit 1: xtea_enc-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 23
-    Info (12023): Found entity 1: xtea_enc File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 9
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 8 errors, 3 warnings
-    Error: Peak virtual memory: 4833 megabytes
-    Error: Processing ended: Fri Apr 30 17:33:03 2021
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:11
+    Info (12022): Found design unit 1: xtea_dec-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 23
+    Info (12023): Found entity 1: xtea_dec File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file xtea_sum.vhd
+    Info (12022): Found design unit 1: xtea_sum-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_sum.vhd Line: 16
+    Info (12023): Found entity 1: xtea_sum File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_sum.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file xtea_tb.vhd
+    Info (12022): Found design unit 1: xtea_tb-tb File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_tb.vhd Line: 25
+    Info (12023): Found entity 1: xtea_tb File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_tb.vhd Line: 21
+Info (12127): Elaborating entity "xtea_top" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at xtea_top.vhd(63): used implicit default value for signal "s_data_ready" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 63
+Info (12128): Elaborating entity "xtea_dec" for hierarchy "xtea_dec:dec" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 85
+Info (12128): Elaborating entity "xtea_sum" for hierarchy "xtea_dec:dec|xtea_sum:sumblock" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 77
+Info (12128): Elaborating entity "xtea_dec1_enc2" for hierarchy "xtea_dec:dec|xtea_dec1_enc2:dec1" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 85
+Info (12128): Elaborating entity "xtea_dec2_enc1" for hierarchy "xtea_dec:dec|xtea_dec2_enc1:dec2" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 96
+Warning (12241): 2 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_ready" is stuck at GND File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 15
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 128 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "key_word_in[0]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[1]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[2]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[3]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[4]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[5]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[6]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[7]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[8]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[9]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[10]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[11]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[12]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[13]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[14]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[15]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[16]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[17]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[18]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[19]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[20]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[21]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[22]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[23]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[24]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[25]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[26]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[27]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[28]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[29]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[30]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[31]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[32]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[33]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[34]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[35]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[36]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[37]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[38]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[39]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[40]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[41]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[42]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[43]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[44]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[45]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[46]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[47]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[48]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[49]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[50]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[51]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[52]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[53]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[54]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[55]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[56]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[57]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[58]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[59]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[60]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[61]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[62]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[63]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[64]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[65]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[66]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[67]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[68]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[69]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[70]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[71]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[72]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[73]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[74]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[75]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[76]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[77]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[78]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[79]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[80]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[81]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[82]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[83]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[84]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[85]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[86]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[87]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[88]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[89]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[90]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[91]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[92]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[93]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[94]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[95]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[96]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[97]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[98]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[99]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[100]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[101]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[102]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[103]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[104]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[105]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[106]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[107]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[108]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[109]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[110]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[111]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[112]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[113]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[114]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[115]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[116]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[117]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[118]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[119]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[120]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[121]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[122]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[123]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[124]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[125]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[126]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+    Warning (15610): No output dependent on input pin "key_word_in[127]" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 12
+Info (21057): Implemented 907 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 259 input pins
+    Info (21059): Implemented 129 output pins
+    Info (21061): Implemented 519 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 134 warnings
+    Info: Peak virtual memory: 4900 megabytes
+    Info: Processing ended: Mon May 17 18:28:17 2021
+    Info: Elapsed time: 00:00:06
+    Info: Total CPU time (on all processors): 00:00:12
 
 
