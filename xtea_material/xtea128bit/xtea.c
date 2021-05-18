@@ -1,7 +1,7 @@
 #include "xtea.h"
 
 // XTEA: 128-bits
-void xtea_enc(uint32_t **dest, const uint32_t **v, const uint32_t **k) {
+void xtea_enc(uint32_t **dest, const uint32_t **datav, const uint32_t **k) {
   uint8_t i;
   uint32_t y0 = *v[0], z0 = *v[1], y1 = *v[2], z1 = *v[3];
   uint32_t sum = 0, delta = 0x9E3779B9;
@@ -11,7 +11,7 @@ void xtea_enc(uint32_t **dest, const uint32_t **v, const uint32_t **k) {
     y1  += ((z1 << 4 ^ z1 >> 5) + z1) ^ (sum + *k[sum & 3]);
     sum += delta;
     z0  += ((y0 << 4 ^ y0 >> 5) + y0) ^ (sum + *k[sum>>11 & 3]);
-	z1  += ((y1 << 4 ^ y1 >> 5) + y1) ^ (sum + *k[sum>>11 & 3]);
+	  z1  += ((y1 << 4 ^ y1 >> 5) + y1) ^ (sum + *k[sum>>11 & 3]);
   }
   *dest[0]=y0; *dest[1]=z0; *dest[2]=y1; *dest[3]=z1;
 }

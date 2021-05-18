@@ -1,7 +1,7 @@
 -- Library declarations
 LIBRARY IEEE;
 USE IEEE.STD_LOGIC_1164.ALL;
-USE ieee.numeric_std.all; --Required for Shifts
+USE ieee.numeric_std.ALL; --Required for Shifts
 
 -- Entity definition
 ENTITY xtea_dec2_enc1 IS
@@ -36,20 +36,10 @@ ARCHITECTURE Behavioral OF xtea_dec2_enc1 IS
 	
 BEGIN
 		
---		y1_increment <= ((shift_left(z1_current,4) ** shift_right(z1_current,5)) + z1_current) ** (sum + key_32(shift_right(sum,3)));
---		y0_increment <= ((shift_left(z0_current,4) ** shift_right(z0_current,5)) + z0_current) ** (sum + key_32(shift_right(sum,3)));
-		
---		y1_increment <= STD_LOGIC_VECTOR((shift_left(unsigned(z1_current),4) ** STD_LOGIC_VECTOR(shift_right(unsigned(z1_current),5)) + z1_current)) ** STD_LOGIC_VECTOR(sum + key_32(sum AND 3));
---		y0_increment <= STD_LOGIC_VECTOR((shift_left(unsigned(z0_current),4) ** STD_LOGIC_VECTOR(shift_right(unsigned(z0_current),5)) + z0_current)) ** STD_LOGIC_VECTOR(sum + key_32(sum AND 3));
-
---		y1_increment <= ((z1 * 16) XOR (z1(31 DOWNTO 5) & '00000')) XOR (sum + key_32(key_index));
---		y0_increment <= ((z0 * 16) XOR (z0(31 DOWNTO 5) & '00000')) XOR (sum + key_32(key_index));
-		
-	
 	
 	Output_Decode : process (dec_enc_flag,y0_current,y1_current,y0_increment,y1_increment) begin 
 
-		if dec_enc_flag = '1' then
+		if dec_enc_flag = '0' then
 			y1_current <= y1_current + y1_increment;
 			y0_current <= y0_current + y0_increment;
 		else
@@ -66,8 +56,6 @@ BEGIN
 			Y1 <= STD_LOGIC_VECTOR(Y1_current); 
 			Z0_current <= unsigned(Z0);
 			Z1_current <= unsigned(Z1);
---			key_index <= "00";
---			key_calc <= to_unsigned(0,32);
 		end if;
 		
 	end process;

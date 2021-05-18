@@ -5,11 +5,10 @@ USE ieee.numeric_std.all; --Required for UNSIGNED conversion
 
 ENTITY xtea_sum IS
   PORT(
-		clk 				: IN  STD_LOGIC;
+		trigger 			: IN  STD_LOGIC;
 		reset_n			: IN  STD_LOGIC;
 		dec_enc_flag 	: IN  STD_LOGIC;
 		sum				: OUT  unsigned(31 DOWNTO 0) -- Max number stored is : 84941944608 (0x9E3779B9 * 32) (1001111000110111011110011011100100000) (37 bit)
-	
   );
 END ENTITY xtea_sum;
 	
@@ -35,9 +34,9 @@ BEGIN
 			
 	end process;
 
-	Clock_Process : process (Clk) begin  
+	Trigger_Process : process (trigger) begin  
 		
-		if Clk' event and Clk = '1' then
+		if rising_edge(trigger) then
 			if dec_enc_flag = '1' then
 				sum <= s_sum - delta;
 			else

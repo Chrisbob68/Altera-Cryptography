@@ -1,6 +1,13 @@
 
+State Machine - |xtea_top|State
+Name State.output State.encdec State.keydatain State.idle 
+State.idle 0 0 0 0 
+State.keydatain 0 0 1 1 
+State.encdec 0 1 0 1 
+State.output 1 0 0 1 
+
 State Machine - |xtea_top|xtea_dec:dec|State
-Name State.ProcessState State.FinishState State.StartState 
+Name State.ProcessStateD2E1 State.ProcessStateD1E2 State.StartState 
 State.StartState 0 0 0 
-State.FinishState 0 1 1 
-State.ProcessState 1 0 1 
+State.ProcessStateD1E2 0 1 1 
+State.ProcessStateD2E1 1 0 1 
