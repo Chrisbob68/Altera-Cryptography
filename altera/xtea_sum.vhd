@@ -14,21 +14,20 @@ END ENTITY xtea_sum;
 	
 ARCHITECTURE Behavioral OF xtea_sum IS
 
-	SIGNAL delta 	: unsigned(31 DOWNTO 0);
-	SIGNAL s_sum 	: unsigned(31 DOWNTO 0);
+	constant delta 	: unsigned (31 downto 0) := x"9E3779B9";
+	constant dec_init : unsigned (31 downto 0) := x"C6EF3720";
+	constant enc_init	: unsigned (31 downto 0) := (others => '0');
+	SIGNAL s_sum 		: unsigned(31 DOWNTO 0);
 
 BEGIN
 
-	Reset_Process : process (reset_n) begin 
+	Reset_Process : process (reset_n, dec_enc_flag) begin 
 
-			if reset_n = '1' then
-				
-				 delta <= to_unsigned(2654435769, 32);--0x9E3779B9
-				
+			if reset_n = '0' then				
 				if dec_enc_flag = '1' then
-					s_sum <= to_unsigned(3337565984,32);
+					s_sum <= enc_init;
 				else
-					s_sum <= to_unsigned(0,32);
+					s_sum <= dec_init;
 				end if;
 			end if;
 			

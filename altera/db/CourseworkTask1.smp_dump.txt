@@ -1,13 +1,26 @@
 
 State Machine - |xtea_top|State
-Name State.output State.encdec State.keydatain State.idle 
-State.idle 0 0 0 0 
-State.keydatain 0 0 1 1 
-State.encdec 0 1 0 1 
-State.output 1 0 0 1 
+Name State.output4 State.output3 State.output2 State.output1 State.encdec State.keydatain3 State.keydatain2 State.keydatain1 State.idle 
+State.idle 0 0 0 0 0 0 0 0 0 
+State.keydatain1 0 0 0 0 0 0 0 1 1 
+State.keydatain2 0 0 0 0 0 0 1 0 1 
+State.keydatain3 0 0 0 0 0 1 0 0 1 
+State.encdec 0 0 0 0 1 0 0 0 1 
+State.output1 0 0 0 1 0 0 0 0 1 
+State.output2 0 0 1 0 0 0 0 0 1 
+State.output3 0 1 0 0 0 0 0 0 1 
+State.output4 1 0 0 0 0 0 0 0 1 
 
 State Machine - |xtea_top|xtea_dec:dec|State
-Name State.ProcessStateD2E1 State.ProcessStateD1E2 State.StartState 
-State.StartState 0 0 0 
-State.ProcessStateD1E2 0 1 1 
-State.ProcessStateD2E1 1 0 1 
+Name State.OutputState State.ProcessStateD2E1 State.ProcessStateD1E2 State.StartState 
+State.StartState 0 0 0 0 
+State.ProcessStateD1E2 0 0 1 1 
+State.ProcessStateD2E1 0 1 0 1 
+State.OutputState 1 0 0 1 
+
+State Machine - |xtea_top|xtea_dec:dec|NextState
+Name NextState.OutputState NextState.ProcessStateD2E1 NextState.ProcessStateD1E2 NextState.StartState 
+NextState.StartState 0 0 0 0 
+NextState.ProcessStateD1E2 0 0 1 1 
+NextState.ProcessStateD2E1 0 1 0 1 
+NextState.OutputState 1 0 0 1 
