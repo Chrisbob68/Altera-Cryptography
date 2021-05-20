@@ -95,7 +95,7 @@ BEGIN
 
 
 -- Process block to decode the next state of the system
-Next_State_Decode : process (State,key_data_valid, s_data_ready) begin
+Next_State_Decode : process (clk, State,key_data_valid, s_data_ready) begin
  
 		case (State) is
 		

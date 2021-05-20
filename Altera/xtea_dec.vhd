@@ -113,18 +113,21 @@ begin
             end if;
 				
 			when ProcessStateD1E2 => 
-				if ns_iterator >= total_cycles*2 then 
-                NextState <= StartState;
+				ns_iterator := ns_iterator + 1;
+				if ns_iterator >= (total_cycles*2)-1 then 
+                NextState <= OutputState;
             else NextState <= ProcessStateD2E1;  
             end if;
 			
-			when ProcessStateD2E1 => 
-				if ns_iterator >= total_cycles*2 then 
+			when ProcessStateD2E1 =>
+				ns_iterator := ns_iterator + 1;
+				if ns_iterator >= (total_cycles*2)-1 then 
                 NextState <= OutputState;
             else NextState <= ProcessStateD1E2;  
             end if;
 				
-			when OutputState => 
+			when OutputState =>
+				ns_iterator := ns_iterator + 1;
 				if ns_iterator >= (total_cycles*2)+4 then 
                 NextState <= StartState;
             else NextState <= OutputState;  
@@ -132,7 +135,7 @@ begin
 				
 			when others =>
 		end case;
-		ns_iterator := ns_iterator + 1;
+		
 	end if;
 end process;
 

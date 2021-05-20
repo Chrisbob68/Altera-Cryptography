@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CourseworkTask1
-Wed May 19 20:29:45 2021
+Thu May 20 14:08:47 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -48,7 +48,7 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Wed May 19 20:29:45 2021       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 20 14:08:47 2021       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; CourseworkTask1                             ;
 ; Top-level Entity Name           ; xtea_top                                    ;
@@ -168,7 +168,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.0%      ;
+;     Processor 2            ;   0.1%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
@@ -196,14 +196,14 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 511       ;
+; Estimate of Logic utilization (ALMs needed) ; 562       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 871       ;
+; Combinational ALUT usage for logic          ; 986       ;
 ;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 135       ;
-;     -- 5 input functions                    ; 94        ;
-;     -- 4 input functions                    ; 34        ;
-;     -- <=3 input functions                  ; 608       ;
+;     -- 6 input functions                    ; 122       ;
+;     -- 5 input functions                    ; 108       ;
+;     -- 4 input functions                    ; 35        ;
+;     -- <=3 input functions                  ; 721       ;
 ;                                             ;           ;
 ; Dedicated logic registers                   ; 314       ;
 ;                                             ;           ;
@@ -213,8 +213,8 @@ https://fpgasoftware.intel.com/eula.
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
 ; Maximum fan-out                             ; 314       ;
-; Total fan-out                               ; 4339      ;
-; Average fan-out                             ; 3.13      ;
+; Total fan-out                               ; 4690      ;
+; Average fan-out                             ; 3.12      ;
 +---------------------------------------------+-----------+
 
 
@@ -223,10 +223,10 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name    ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
-; |xtea_top                   ; 871 (327)           ; 314 (9)                   ; 0                 ; 0          ; 101  ; 0            ; |xtea_top                                  ; xtea_top       ; work         ;
-;    |xtea_dec:dec|           ; 544 (196)           ; 305 (305)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec                     ; xtea_dec       ; work         ;
-;       |xtea_dec1_enc2:dec1| ; 174 (174)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1 ; xtea_dec1_enc2 ; work         ;
-;       |xtea_dec2_enc1:dec2| ; 174 (174)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2 ; xtea_dec2_enc1 ; work         ;
+; |xtea_top                   ; 986 (329)           ; 314 (9)                   ; 0                 ; 0          ; 101  ; 0            ; |xtea_top                                  ; xtea_top       ; work         ;
+;    |xtea_dec:dec|           ; 657 (181)           ; 305 (305)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec                     ; xtea_dec       ; work         ;
+;       |xtea_dec1_enc2:dec1| ; 238 (238)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1 ; xtea_dec1_enc2 ; work         ;
+;       |xtea_dec2_enc1:dec2| ; 238 (238)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2 ; xtea_dec2_enc1 ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -392,7 +392,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Total registers                              ; 314   ;
 ; Number of registers using Synchronous Clear  ; 271   ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Synchronous Load   ; 25    ;
 ; Number of registers using Asynchronous Clear ; 13    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 160   ;
@@ -405,13 +405,13 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_y0[2]                        ;
-; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_z1[29]                       ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[20]                      ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[25]                      ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2|Selector26 ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1|Selector5  ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |xtea_top|Selector6                                   ;
+; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_y1[31]                       ;
+; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_z0[23]                       ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[2]                       ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[10]                      ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2|Selector3  ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1|Selector26 ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |xtea_top|Selector20                                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
@@ -422,25 +422,27 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +-----------------------+-----------------------------+
 ; arriav_ff             ; 314                         ;
 ;     CLR               ; 13                          ;
-;     ENA               ; 17                          ;
 ;     ENA SCLR          ; 143                         ;
+;     ENA SLD           ; 17                          ;
 ;     SCLR              ; 128                         ;
-;     plain             ; 13                          ;
-; arriav_lcell_comb     ; 871                         ;
-;     arith             ; 231                         ;
-;         1 data inputs ; 93                          ;
-;         2 data inputs ; 137                         ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 640                         ;
+;     SLD               ; 8                           ;
+;     plain             ; 5                           ;
+; arriav_lcell_comb     ; 986                         ;
+;     arith             ; 344                         ;
+;         1 data inputs ; 117                         ;
+;         2 data inputs ; 227                         ;
+;     normal            ; 642                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 1                           ;
 ;         2 data inputs ; 7                           ;
-;         3 data inputs ; 370                         ;
-;         4 data inputs ; 34                          ;
-;         5 data inputs ; 94                          ;
-;         6 data inputs ; 135                         ;
+;         3 data inputs ; 368                         ;
+;         4 data inputs ; 35                          ;
+;         5 data inputs ; 108                         ;
+;         6 data inputs ; 122                         ;
 ; boundary_port         ; 101                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 8.10                        ;
-; Average LUT depth     ; 4.41                        ;
+; Average LUT depth     ; 4.74                        ;
 +-----------------------+-----------------------------+
 
 
@@ -459,7 +461,7 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Wed May 19 20:29:39 2021
+    Info: Processing started: Thu May 20 14:08:41 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CourseworkTask1 -c CourseworkTask1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
@@ -752,13 +754,13 @@ Warning (10540): VHDL Signal Declaration warning at xtea_dec2_enc1.vhd(29): used
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1111 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1234 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 68 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 1010 logic cells
+    Info (21061): Implemented 1133 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
-    Info: Peak virtual memory: 4903 megabytes
-    Info: Processing ended: Wed May 19 20:29:45 2021
+    Info: Peak virtual memory: 4914 megabytes
+    Info: Processing ended: Thu May 20 14:08:47 2021
     Info: Elapsed time: 00:00:06
     Info: Total CPU time (on all processors): 00:00:12
 

@@ -72,8 +72,8 @@ BEGIN
 				
 		end case;
 		
-		z1_increment <= ((shift_left(unsigned(y1),4)) XOR (shift_right(unsigned(y1),5))) XOR key_calc;
-		z0_increment <= ((shift_left(unsigned(y0),4)) XOR (shift_right(unsigned(y0),5))) XOR key_calc;
+		z1_increment <= ((shift_left(unsigned(y1),4) + unsigned(y1)) XOR (shift_right(unsigned(y1),5))) XOR key_calc;
+		z0_increment <= ((shift_left(unsigned(y0),4) + unsigned(y0)) XOR (shift_right(unsigned(y0),5))) XOR key_calc;
 		
 	end process;
 	
