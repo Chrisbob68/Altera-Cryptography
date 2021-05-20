@@ -72,6 +72,7 @@ BEGIN
 	
 	s_clk <= clk;
 	s_reset_n <= reset_n;
+	data_ready <= s_data_ready;
 	 
 --	enc : xtea_enc PORT MAP(
 --		clk            => s_clk,
@@ -148,7 +149,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 			when idle =>
 
 				s_start <= '0';
-				data_ready <= '0';
 				data_word_out <= (others => '0');
 				
 				if key_data_valid = '1' then 
@@ -161,7 +161,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 			when keydatain1 => 
 				
 				s_start <= '0';
-				data_ready <= '0';
 				data_word_out <= (others => '0');
 				
 				s_key_word_in(63 DOWNTO 32) <= key_word_in;
@@ -170,7 +169,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 			when keydatain2 => 
 				
 				s_start <= '0';
-				data_ready <= '0';
 				data_word_out <= (others => '0');
 				
 				s_key_word_in(95 DOWNTO 64) <= key_word_in;
@@ -179,7 +177,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 			when keydatain3 => 
 				
 				s_start <= '0';
-				data_ready <= '0';
 				data_word_out <= (others => '0');
 				
 				s_key_word_in(127 DOWNTO 96) <= key_word_in;
@@ -188,7 +185,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 			when encdec => 
 			
 				s_start <= '1';
-				data_ready <= '0';
 				data_word_out <= (others => '0');
 				
 			when output1 =>
@@ -210,7 +206,6 @@ Output_Decode : process (State, key_data_valid, key_word_in, data_word_in, s_dat
 				
 				s_start <= '0';
 				data_word_out <= s_data_word_out(127 DOWNTO 96);
-				data_ready <= '1';
 				
 		end case;
 end process;

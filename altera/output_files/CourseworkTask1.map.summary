@@ -1,10 +1,10 @@
-Analysis & Synthesis Status : Successful - Thu May 20 14:08:47 2021
+Analysis & Synthesis Status : Successful - Thu May 20 18:36:43 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : CourseworkTask1
 Top-level Entity Name : xtea_top
 Family : Cyclone V
 Logic utilization (in ALMs) : N/A
-Total registers : 314
+Total registers : 302
 Total pins : 101
 Total virtual pins : 0
 Total block memory bits : 0

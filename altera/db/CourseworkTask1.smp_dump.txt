@@ -17,10 +17,3 @@ State.StartState 0 0 0 0
 State.ProcessStateD1E2 0 0 1 1 
 State.ProcessStateD2E1 0 1 0 1 
 State.OutputState 1 0 0 1 
-
-State Machine - |xtea_top|xtea_dec:dec|NextState
-Name NextState.OutputState NextState.ProcessStateD2E1 NextState.ProcessStateD1E2 NextState.StartState 
-NextState.StartState 0 0 0 0 
-NextState.ProcessStateD1E2 0 0 1 1 
-NextState.ProcessStateD2E1 0 1 0 1 
-NextState.OutputState 1 0 0 1 

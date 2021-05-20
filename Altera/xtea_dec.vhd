@@ -32,9 +32,11 @@ ARCHITECTURE Behavioral OF xtea_dec IS
 			key				: IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
 			y1    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			y0    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			z1    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			z0    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			
-			z1_inc  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			z0_inc 				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+			z1_new  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			z0_new 				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	  );
 	END COMPONENT xtea_dec1_enc2;
  
@@ -47,15 +49,17 @@ ARCHITECTURE Behavioral OF xtea_dec IS
 			key				: IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
 			z1    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			z0    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			y1    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
+			y0    			: IN  STD_LOGIC_VECTOR(31 DOWNTO 0);
 			
-			y1_inc  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
-			y0_inc  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
+			y1_new  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
+			y0_new  				: OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	  );
 	END COMPONENT xtea_dec2_enc1;
 	
 	--Intermediate Signals
-	SIGNAL s_y0, s_y1, s_z0, s_z1 														: STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
-	SIGNAL s_y0_increment, s_y1_increment, s_z0_increment, s_z1_increment 	: STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0'); 
+	SIGNAL s_y0, s_y1, s_z0, s_z1 						: STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0');
+	SIGNAL s_y0_new, s_y1_new, s_z0_new, s_z1_new 	: STD_LOGIC_VECTOR(31 DOWNTO 0) := (others => '0'); 
 	
 	--Processing Signals
 	SIGNAL s_data_ready 	: STD_LOGIC := '0';
@@ -80,8 +84,10 @@ BEGIN
 		key 				=> key_word_in,
 		y1     			=> s_y1,
 		y0    			=> s_y0,
-		z1_inc     		=> s_z1_increment,
-		z0_inc  			=> s_z0_increment
+		z1     			=> s_z1,
+		z0    			=> s_z0,
+		z1_new     		=> s_z1_new,
+		z0_new  			=> s_z0_new
 	);
 	 
 	dec2 : xtea_dec2_enc1
@@ -92,15 +98,16 @@ BEGIN
 		key 				=> key_word_in,
 		z1     			=> s_z1,
 		z0    			=> s_z0,
-		y1_inc     		=> s_y0_increment,
-		y0_inc  			=> s_y1_increment
+		y1     			=> s_y1,
+		y0    			=> s_y0,
+		y1_new     		=> s_y1_new,
+		y0_new  			=> s_y0_new
 	);
 
 -- Process block to decode the next state of the system
 Next_State_Decode : process (clk)
 variable ns_iterator : unsigned(7 downto 0);
 begin 
-	if rising_edge(clk) then
 		case (State) is
 			when StartState =>
 				ns_iterator := to_unsigned(0, 8);
@@ -114,46 +121,34 @@ begin
 				
 			when ProcessStateD1E2 => 
 				ns_iterator := ns_iterator + 1;
-				if ns_iterator >= (total_cycles*2)-1 then 
+				if ns_iterator >= (total_cycles*4)-1 then 
                 NextState <= OutputState;
             else NextState <= ProcessStateD2E1;  
             end if;
 			
 			when ProcessStateD2E1 =>
 				ns_iterator := ns_iterator + 1;
-				if ns_iterator >= (total_cycles*2)-1 then 
+				if ns_iterator >= (total_cycles*4)-1 then 
                 NextState <= OutputState;
             else NextState <= ProcessStateD1E2;  
             end if;
 				
 			when OutputState =>
 				ns_iterator := ns_iterator + 1;
-				if ns_iterator >= (total_cycles*2)+4 then 
+				if ns_iterator >= (total_cycles*4)+8 then 
                 NextState <= StartState;
             else NextState <= OutputState;  
             end if;
 				
 			when others =>
 		end case;
-		
-	end if;
 end process;
 
--- This process block controls the output of the system in each state based on the inputs and signal values involved.
-Output_Decode : process (clk) 
-begin
+Sum_Process : process (dec_enc_flag, clk) begin
 	if rising_edge(clk) then
 		case (State) is
 			when StartState =>
 			
-				s_z1 <= data_word_in(127 DOWNTO 96);
-				s_y1 <= data_word_in(95 DOWNTO 64);
-				s_z0 <= data_word_in(63 DOWNTO 32);
-				s_y0 <= data_word_in(31 DOWNTO 0);
-				
-				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
-				data_ready <= '0';
-				
 				if dec_enc_flag = '1' then
 					s_sum <= sum_enc_init;
 				else s_sum <= sum_dec_init;
@@ -161,35 +156,56 @@ begin
 				
 			when ProcessStateD1E2 => 
 			
-				s_z1 <= s_z1_increment;
-				s_z0 <= s_z0_increment;
-
-				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
-				data_ready <= '0';
-				
 				if dec_enc_flag = '0' then
 					s_sum <= s_sum - delta;
 				end if;
 			
 			when ProcessStateD2E1 => 
-				
-				s_y1 <= s_y1_increment;
-				s_y0 <= s_y0_increment;
-
-				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
-				data_ready <= '0';
-				
+			
 				if dec_enc_flag = '1' then
 					s_sum <= s_sum + delta;
 				end if;
 				
+			when others =>
+		end case;
+	end if;
+end process;
+
+-- This process block controls the output of the system in each state based on the inputs and signal values involved.
+Output_Decode : process (clk) 
+begin
+	if falling_edge(clk) then
+		case (State) is
+			when StartState =>
+			
+				s_y0 <= data_word_in(127 DOWNTO 96);
+				s_z0 <= data_word_in(95 DOWNTO 64);
+				s_y1 <= data_word_in(63 DOWNTO 32);
+				s_z1 <= data_word_in(31 DOWNTO 0);
+				
+				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
+				data_ready <= '0';
+				
+			when ProcessStateD1E2 => 
+			
+				s_z0 <= s_z0_new;
+				s_z1 <= s_z1_new;
+
+				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
+				data_ready <= '0';
+			
+			when ProcessStateD2E1 => 
+			
+				s_y1 <= s_y1_new;
+				s_y0 <= s_y0_new;
+
+				data_word_out(127 DOWNTO 0) <= STD_LOGIC_VECTOR(to_unsigned(0, 128));
+				data_ready <= '0';
+				
 			when OutputState =>
 			
-				data_ready <= '1';
-				data_word_out(127 DOWNTO 96) <= s_z1;
-				data_word_out(95 DOWNTO 64) <= s_y1;
-				data_word_out(63 DOWNTO 32) <= s_z0;
-				data_word_out(31 DOWNTO 0) <= s_y0;
+				data_ready <= '1';				
+				data_word_out <= STD_LOGIC_VECTOR(s_y0) & STD_LOGIC_VECTOR(s_z0) & STD_LOGIC_VECTOR(s_y1) & STD_LOGIC_VECTOR(s_z1);
 			
 			when others =>
 		end case;

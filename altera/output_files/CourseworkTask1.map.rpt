@@ -1,5 +1,5 @@
 Analysis & Synthesis report for CourseworkTask1
-Thu May 20 14:08:47 2021
+Thu May 20 18:36:43 2021
 Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 
 
@@ -15,8 +15,8 @@ Quartus Prime Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |xtea_top|State
   9. State Machine - |xtea_top|xtea_dec:dec|State
- 10. State Machine - |xtea_top|xtea_dec:dec|NextState
- 11. User-Specified and Inferred Latches
+ 10. User-Specified and Inferred Latches
+ 11. Logic Cells Representing Combinational Loops
  12. General Register Statistics
  13. Multiplexer Restructuring Statistics (Restructuring Performed)
  14. Post-Synthesis Netlist Statistics for Top Partition
@@ -48,13 +48,13 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                  ;
 +---------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status     ; Successful - Thu May 20 14:08:47 2021       ;
+; Analysis & Synthesis Status     ; Successful - Thu May 20 18:36:43 2021       ;
 ; Quartus Prime Version           ; 20.1.1 Build 720 11/11/2020 SJ Lite Edition ;
 ; Revision Name                   ; CourseworkTask1                             ;
 ; Top-level Entity Name           ; xtea_top                                    ;
 ; Family                          ; Cyclone V                                   ;
 ; Logic utilization (in ALMs)     ; N/A                                         ;
-; Total registers                 ; 314                                         ;
+; Total registers                 ; 302                                         ;
 ; Total pins                      ; 101                                         ;
 ; Total virtual pins              ; 0                                           ;
 ; Total block memory bits         ; 0                                           ;
@@ -168,7 +168,7 @@ https://fpgasoftware.intel.com/eula.
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processor 2            ;   0.1%      ;
+;     Processor 2            ;   0.0%      ;
 ;     Processor 3            ;   0.0%      ;
 ;     Processor 4            ;   0.0%      ;
 ;     Processor 5            ;   0.0%      ;
@@ -196,25 +196,25 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimate of Logic utilization (ALMs needed) ; 562       ;
+; Estimate of Logic utilization (ALMs needed) ; 513       ;
 ;                                             ;           ;
-; Combinational ALUT usage for logic          ; 986       ;
+; Combinational ALUT usage for logic          ; 911       ;
 ;     -- 7 input functions                    ; 0         ;
-;     -- 6 input functions                    ; 122       ;
-;     -- 5 input functions                    ; 108       ;
-;     -- 4 input functions                    ; 35        ;
-;     -- <=3 input functions                  ; 721       ;
+;     -- 6 input functions                    ; 99        ;
+;     -- 5 input functions                    ; 2         ;
+;     -- 4 input functions                    ; 163       ;
+;     -- <=3 input functions                  ; 647       ;
 ;                                             ;           ;
-; Dedicated logic registers                   ; 314       ;
+; Dedicated logic registers                   ; 302       ;
 ;                                             ;           ;
 ; I/O pins                                    ; 101       ;
 ;                                             ;           ;
 ; Total DSP Blocks                            ; 0         ;
 ;                                             ;           ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 314       ;
-; Total fan-out                               ; 4690      ;
-; Average fan-out                             ; 3.12      ;
+; Maximum fan-out                             ; 302       ;
+; Total fan-out                               ; 4575      ;
+; Average fan-out                             ; 3.23      ;
 +---------------------------------------------+-----------+
 
 
@@ -223,10 +223,10 @@ https://fpgasoftware.intel.com/eula.
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
 ; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                        ; Entity Name    ; Library Name ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
-; |xtea_top                   ; 986 (329)           ; 314 (9)                   ; 0                 ; 0          ; 101  ; 0            ; |xtea_top                                  ; xtea_top       ; work         ;
-;    |xtea_dec:dec|           ; 657 (181)           ; 305 (305)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec                     ; xtea_dec       ; work         ;
-;       |xtea_dec1_enc2:dec1| ; 238 (238)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1 ; xtea_dec1_enc2 ; work         ;
-;       |xtea_dec2_enc1:dec2| ; 238 (238)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2 ; xtea_dec2_enc1 ; work         ;
+; |xtea_top                   ; 911 (325)           ; 302 (9)                   ; 0                 ; 0          ; 101  ; 0            ; |xtea_top                                  ; xtea_top       ; work         ;
+;    |xtea_dec:dec|           ; 586 (198)           ; 293 (293)                 ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec                     ; xtea_dec       ; work         ;
+;       |xtea_dec1_enc2:dec1| ; 194 (194)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1 ; xtea_dec1_enc2 ; work         ;
+;       |xtea_dec2_enc1:dec2| ; 194 (194)           ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2 ; xtea_dec2_enc1 ; work         ;
 +-----------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+--------------------------------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -262,25 +262,11 @@ Encoding Type:  One-Hot
 +------------------------+-------------------+------------------------+------------------------+------------------+
 
 
-Encoding Type:  One-Hot
-+-------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |xtea_top|xtea_dec:dec|NextState                                                                                    ;
-+----------------------------+-----------------------+----------------------------+----------------------------+----------------------+
-; Name                       ; NextState.OutputState ; NextState.ProcessStateD2E1 ; NextState.ProcessStateD1E2 ; NextState.StartState ;
-+----------------------------+-----------------------+----------------------------+----------------------------+----------------------+
-; NextState.StartState       ; 0                     ; 0                          ; 0                          ; 0                    ;
-; NextState.ProcessStateD1E2 ; 0                     ; 0                          ; 1                          ; 1                    ;
-; NextState.ProcessStateD2E1 ; 0                     ; 1                          ; 0                          ; 1                    ;
-; NextState.OutputState      ; 1                     ; 0                          ; 0                          ; 1                    ;
-+----------------------------+-----------------------+----------------------------+----------------------------+----------------------+
-
-
 +-----------------------------------------------------------------------------------------------------+
 ; User-Specified and Inferred Latches                                                                 ;
 +------------------------------------------------------+---------------------+------------------------+
 ; Latch Name                                           ; Latch Enable Signal ; Free of Timing Hazards ;
 +------------------------------------------------------+---------------------+------------------------+
-; data_ready$latch                                     ; WideOr2             ; yes                    ;
 ; s_data_word_in[0]                                    ; s_data_word_in[31]  ; yes                    ;
 ; s_data_word_in[64]                                   ; State.keydatain2    ; yes                    ;
 ; s_data_word_in[32]                                   ; State.keydatain1    ; yes                    ;
@@ -380,9 +366,28 @@ Encoding Type:  One-Hot
 ; s_data_word_in[24]                                   ; s_data_word_in[31]  ; yes                    ;
 ; s_data_word_in[88]                                   ; State.keydatain2    ; yes                    ;
 ; s_data_word_in[56]                                   ; State.keydatain1    ; yes                    ;
-; Number of user-specified and inferred latches = 257  ;                     ;                        ;
+; s_data_word_in[120]                                  ; State.keydatain3    ; yes                    ;
+; Number of user-specified and inferred latches = 256  ;                     ;                        ;
 +------------------------------------------------------+---------------------+------------------------+
 Table restricted to first 100 entries. Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; xtea_dec:dec|LessThan1~0                               ;   ;
+; xtea_dec:dec|LessThan1~1                               ;   ;
+; xtea_dec:dec|LessThan1~2                               ;   ;
+; xtea_dec:dec|LessThan1~3                               ;   ;
+; xtea_dec:dec|LessThan1~4                               ;   ;
+; xtea_dec:dec|LessThan1~5                               ;   ;
+; xtea_dec:dec|LessThan1~6                               ;   ;
+; xtea_dec:dec|LessThan1~7                               ;   ;
+; Number of logic cells representing combinational loops ; 8 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
 +------------------------------------------------------+
@@ -390,9 +395,9 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 314   ;
+; Total registers                              ; 302   ;
 ; Number of registers using Synchronous Clear  ; 271   ;
-; Number of registers using Synchronous Load   ; 25    ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 13    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
 ; Number of registers using Clock Enable       ; 160   ;
@@ -405,13 +410,13 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
-; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_y1[31]                       ;
-; 5:1                ; 64 bits   ; 192 LEs       ; 128 LEs              ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_z0[23]                       ;
-; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[2]                       ;
-; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[10]                      ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2|Selector3  ;
-; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1|Selector26 ;
-; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |xtea_top|Selector20                                  ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_y1[0]                        ;
+; 4:1                ; 64 bits   ; 128 LEs       ; 64 LEs               ; 64 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_z0[31]                       ;
+; 6:1                ; 15 bits   ; 60 LEs        ; 0 LEs                ; 60 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[1]                       ;
+; 6:1                ; 17 bits   ; 68 LEs        ; 17 LEs               ; 51 LEs                 ; Yes        ; |xtea_top|xtea_dec:dec|s_sum[5]                       ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec2_enc1:dec2|Selector20 ;
+; 4:1                ; 32 bits   ; 64 LEs        ; 64 LEs               ; 0 LEs                  ; No         ; |xtea_top|xtea_dec:dec|xtea_dec1_enc2:dec1|Selector27 ;
+; 5:1                ; 32 bits   ; 96 LEs        ; 96 LEs               ; 0 LEs                  ; No         ; |xtea_top|Selector4                                   ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-------------------------------------------------------+
 
 
@@ -420,29 +425,28 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; arriav_ff             ; 314                         ;
+; arriav_ff             ; 302                         ;
 ;     CLR               ; 13                          ;
+;     ENA               ; 17                          ;
 ;     ENA SCLR          ; 143                         ;
-;     ENA SLD           ; 17                          ;
 ;     SCLR              ; 128                         ;
-;     SLD               ; 8                           ;
-;     plain             ; 5                           ;
-; arriav_lcell_comb     ; 986                         ;
-;     arith             ; 344                         ;
-;         1 data inputs ; 117                         ;
-;         2 data inputs ; 227                         ;
-;     normal            ; 642                         ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 368                         ;
+;     plain             ; 1                           ;
+; arriav_lcell_comb     ; 911                         ;
+;     arith             ; 363                         ;
+;         1 data inputs ; 5                           ;
+;         2 data inputs ; 137                         ;
+;         3 data inputs ; 93                          ;
+;         4 data inputs ; 128                         ;
+;     normal            ; 548                         ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 404                         ;
 ;         4 data inputs ; 35                          ;
-;         5 data inputs ; 108                         ;
-;         6 data inputs ; 122                         ;
+;         5 data inputs ; 2                           ;
+;         6 data inputs ; 99                          ;
 ; boundary_port         ; 101                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.10                        ;
-; Average LUT depth     ; 4.74                        ;
+; Max LUT depth         ; 7.10                        ;
+; Average LUT depth     ; 4.16                        ;
 +-----------------------+-----------------------------+
 
 
@@ -461,15 +465,15 @@ Table restricted to first 100 entries. Note: All latches listed above may not be
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 20.1.1 Build 720 11/11/2020 SJ Lite Edition
-    Info: Processing started: Thu May 20 14:08:41 2021
+    Info: Processing started: Thu May 20 18:36:37 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off CourseworkTask1 -c CourseworkTask1
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 12 of the 12 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file xtea_dec1_enc2.vhd
-    Info (12022): Found design unit 1: xtea_dec1_enc2-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 23
+    Info (12022): Found design unit 1: xtea_dec1_enc2-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 25
     Info (12023): Found entity 1: xtea_dec1_enc2 File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file xtea_dec2_enc1.vhd
-    Info (12022): Found design unit 1: xtea_dec2_enc1-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 23
+    Info (12022): Found design unit 1: xtea_dec2_enc1-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 25
     Info (12023): Found entity 1: xtea_dec2_enc1 File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 7
 Info (12021): Found 2 design units, including 1 entities, in source file xtea_sum.vhd
     Info (12022): Found design unit 1: xtea_sum-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_sum.vhd Line: 15
@@ -484,284 +488,281 @@ Info (12021): Found 2 design units, including 1 entities, in source file xtea_de
     Info (12022): Found design unit 1: xtea_dec-Behavioral File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 24
     Info (12023): Found entity 1: xtea_dec File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 8
 Info (12127): Elaborating entity "xtea_top" for the top level hierarchy
-Warning (10631): VHDL Process Statement warning at xtea_top.vhd(145): inferring latch(es) for signal or variable "data_ready", which holds its previous value in one or more paths through the process File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Warning (10631): VHDL Process Statement warning at xtea_top.vhd(145): inferring latch(es) for signal or variable "s_key_word_in", which holds its previous value in one or more paths through the process File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Warning (10631): VHDL Process Statement warning at xtea_top.vhd(145): inferring latch(es) for signal or variable "s_data_word_in", which holds its previous value in one or more paths through the process File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[0]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[1]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[2]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[3]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[4]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[5]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[6]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[7]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[8]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[9]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[10]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[11]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[12]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[13]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[14]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[15]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[16]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[17]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[18]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[19]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[20]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[21]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[22]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[23]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[24]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[25]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[26]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[27]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[28]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[29]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[30]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[31]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[32]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[33]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[34]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[35]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[36]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[37]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[38]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[39]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[40]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[41]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[42]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[43]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[44]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[45]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[46]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[47]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[48]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[49]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[50]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[51]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[52]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[53]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[54]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[55]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[56]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[57]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[58]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[59]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[60]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[61]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[62]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[63]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[64]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[65]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[66]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[67]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[68]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[69]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[70]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[71]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[72]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[73]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[74]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[75]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[76]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[77]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[78]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[79]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[80]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[81]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[82]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[83]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[84]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[85]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[86]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[87]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[88]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[89]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[90]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[91]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[92]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[93]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[94]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[95]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[96]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[97]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[98]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[99]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[100]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[101]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[102]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[103]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[104]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[105]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[106]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[107]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[108]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[109]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[110]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[111]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[112]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[113]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[114]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[115]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[116]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[117]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[118]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[119]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[120]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[121]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[122]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[123]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[124]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[125]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[126]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_data_word_in[127]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[0]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[1]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[2]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[3]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[4]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[5]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[6]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[7]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[8]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[9]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[10]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[11]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[12]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[13]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[14]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[15]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[16]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[17]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[18]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[19]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[20]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[21]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[22]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[23]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[24]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[25]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[26]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[27]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[28]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[29]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[30]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[31]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[32]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[33]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[34]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[35]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[36]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[37]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[38]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[39]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[40]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[41]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[42]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[43]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[44]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[45]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[46]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[47]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[48]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[49]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[50]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[51]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[52]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[53]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[54]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[55]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[56]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[57]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[58]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[59]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[60]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[61]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[62]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[63]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[64]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[65]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[66]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[67]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[68]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[69]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[70]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[71]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[72]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[73]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[74]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[75]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[76]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[77]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[78]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[79]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[80]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[81]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[82]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[83]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[84]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[85]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[86]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[87]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[88]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[89]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[90]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[91]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[92]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[93]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[94]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[95]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[96]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[97]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[98]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[99]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[100]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[101]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[102]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[103]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[104]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[105]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[106]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[107]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[108]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[109]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[110]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[111]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[112]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[113]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[114]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[115]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[116]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[117]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[118]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[119]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[120]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[121]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[122]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[123]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[124]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[125]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[126]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "s_key_word_in[127]" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (10041): Inferred latch for "data_ready" at xtea_top.vhd(145) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 145
-Info (12128): Elaborating entity "xtea_dec" for hierarchy "xtea_dec:dec" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 85
-Info (12128): Elaborating entity "xtea_dec1_enc2" for hierarchy "xtea_dec:dec|xtea_dec1_enc2:dec1" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 75
-Warning (10540): VHDL Signal Declaration warning at xtea_dec1_enc2.vhd(27): used explicit default value for signal "z0_current" because signal was never assigned a value File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 27
-Warning (10540): VHDL Signal Declaration warning at xtea_dec1_enc2.vhd(29): used explicit default value for signal "z1_current" because signal was never assigned a value File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec1_enc2.vhd Line: 29
-Info (12128): Elaborating entity "xtea_dec2_enc1" for hierarchy "xtea_dec:dec|xtea_dec2_enc1:dec2" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 87
-Warning (10540): VHDL Signal Declaration warning at xtea_dec2_enc1.vhd(27): used explicit default value for signal "y0_current" because signal was never assigned a value File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 27
-Warning (10540): VHDL Signal Declaration warning at xtea_dec2_enc1.vhd(29): used explicit default value for signal "y1_current" because signal was never assigned a value File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec2_enc1.vhd Line: 29
+Warning (10631): VHDL Process Statement warning at xtea_top.vhd(146): inferring latch(es) for signal or variable "s_key_word_in", which holds its previous value in one or more paths through the process File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Warning (10631): VHDL Process Statement warning at xtea_top.vhd(146): inferring latch(es) for signal or variable "s_data_word_in", which holds its previous value in one or more paths through the process File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[0]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[1]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[2]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[3]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[4]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[5]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[6]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[7]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[8]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[9]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[10]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[11]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[12]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[13]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[14]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[15]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[16]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[17]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[18]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[19]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[20]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[21]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[22]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[23]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[24]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[25]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[26]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[27]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[28]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[29]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[30]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[31]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[32]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[33]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[34]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[35]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[36]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[37]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[38]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[39]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[40]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[41]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[42]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[43]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[44]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[45]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[46]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[47]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[48]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[49]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[50]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[51]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[52]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[53]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[54]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[55]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[56]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[57]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[58]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[59]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[60]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[61]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[62]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[63]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[64]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[65]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[66]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[67]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[68]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[69]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[70]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[71]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[72]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[73]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[74]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[75]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[76]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[77]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[78]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[79]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[80]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[81]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[82]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[83]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[84]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[85]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[86]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[87]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[88]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[89]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[90]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[91]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[92]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[93]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[94]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[95]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[96]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[97]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[98]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[99]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[100]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[101]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[102]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[103]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[104]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[105]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[106]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[107]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[108]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[109]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[110]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[111]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[112]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[113]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[114]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[115]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[116]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[117]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[118]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[119]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[120]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[121]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[122]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[123]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[124]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[125]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[126]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_data_word_in[127]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[0]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[1]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[2]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[3]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[4]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[5]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[6]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[7]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[8]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[9]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[10]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[11]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[12]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[13]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[14]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[15]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[16]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[17]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[18]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[19]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[20]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[21]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[22]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[23]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[24]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[25]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[26]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[27]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[28]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[29]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[30]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[31]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[32]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[33]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[34]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[35]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[36]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[37]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[38]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[39]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[40]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[41]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[42]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[43]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[44]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[45]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[46]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[47]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[48]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[49]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[50]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[51]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[52]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[53]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[54]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[55]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[56]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[57]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[58]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[59]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[60]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[61]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[62]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[63]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[64]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[65]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[66]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[67]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[68]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[69]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[70]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[71]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[72]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[73]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[74]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[75]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[76]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[77]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[78]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[79]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[80]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[81]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[82]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[83]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[84]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[85]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[86]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[87]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[88]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[89]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[90]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[91]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[92]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[93]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[94]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[95]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[96]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[97]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[98]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[99]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[100]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[101]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[102]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[103]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[104]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[105]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[106]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[107]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[108]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[109]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[110]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[111]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[112]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[113]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[114]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[115]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[116]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[117]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[118]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[119]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[120]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[121]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[122]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[123]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[124]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[125]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[126]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (10041): Inferred latch for "s_key_word_in[127]" at xtea_top.vhd(146) File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 146
+Info (12128): Elaborating entity "xtea_dec" for hierarchy "xtea_dec:dec" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_top.vhd Line: 86
+Warning (10492): VHDL Process Statement warning at xtea_dec.vhd(111): signal "State" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 111
+Warning (10492): VHDL Process Statement warning at xtea_dec.vhd(114): signal "start" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 114
+Warning (10492): VHDL Process Statement warning at xtea_dec.vhd(115): signal "dec_enc_flag" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 115
+Info (12128): Elaborating entity "xtea_dec1_enc2" for hierarchy "xtea_dec:dec|xtea_dec1_enc2:dec1" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 79
+Info (12128): Elaborating entity "xtea_dec2_enc1" for hierarchy "xtea_dec:dec|xtea_dec2_enc1:dec2" File: C:/Users/chris/OneDrive/Documents/Uni Work/3rd Year/FPGA/Coursework/Altera-Cryptography/altera/xtea_dec.vhd Line: 93
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 1234 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 1147 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 68 input pins
     Info (21059): Implemented 33 output pins
-    Info (21061): Implemented 1133 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 8 warnings
+    Info (21061): Implemented 1046 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 6 warnings
     Info: Peak virtual memory: 4914 megabytes
-    Info: Processing ended: Thu May 20 14:08:47 2021
+    Info: Processing ended: Thu May 20 18:36:43 2021
     Info: Elapsed time: 00:00:06
-    Info: Total CPU time (on all processors): 00:00:12
+    Info: Total CPU time (on all processors): 00:00:13
 
 

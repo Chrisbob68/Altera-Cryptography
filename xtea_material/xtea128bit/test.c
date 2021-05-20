@@ -1,42 +1,41 @@
-#include <stdint.h> 
+#include <stdint.h>
 #include <stdio.h>
+
 #include "xtea.h"
-
-int main(void)
-{
-  uint8_t  enc_dec;
-  uint32_t key[4];
-  uint32_t plan[4];
-  uint32_t cipher[4];
-  
-  // Enc: 1, Dec: 0
-  enc_dec = 1;
-  
-  key[0] = 0xDEADBEEF;
-  key[1] = 0x01234567;
-  key[2] = 0x89ABCDEF;  
-  key[3] = 0xDEADBEEF; 
+// This is for ease of building from commandline
+// usually you dont include .c files
+#include "xtea.c"
 
 
-  if (enc_dec) {
-    plan[0] = 0xA5A5A5A5;
-    plan[1] = 0x01234567;  
-    plan[2] = 0xFEDCBA98;
-    plan[3] = 0x5A5A5A5A;
-  }
-  else {
-    plan[0] = 0x089975E9;
-    plan[1] = 0x2555F334;  
-    plan[2] = 0xCE76E4F2;
-    plan[3] = 0x4D932AB3;  	
-  }
+int main() {
+	// input key
+	uint32_t key[] = {
+		0xDEADBEEF,
+		0x01234567,
+		0x89ABCDEF,
+		0xDEADBEEF,
+	};
 
-  xtea(key, plan, enc_dec, cipher);
+	// intput data
+	uint32_t data[] = {
+		0xA5A5A5A5,
+		0x01234567,
+		0xFEDCBA98,
+		0x5A5A5A5A,
+	};
 
-  printf("%08x\n", cipher[0]); //Enc: 0x089975E9 - Dec: 0xA5A5A5A5
-  printf("%08x\n", cipher[1]); //Enc: 0x2555F334 - Dec: 0x01234567
-  printf("%08x\n", cipher[2]); //Enc: 0xCE76E4F2 - Dec: 0xFEDCBA98
-  printf("%08x\n", cipher[3]); //Enc: 0x4D932AB3 - Dec: 0x5A5A5A5A
-   
-  return 0;
+	// Buffer for output data
+	uint32_t e_data_out[4] = { 0 };
+	uint32_t d_data_out[4] = { 0 };
+
+	printf("Input Data  : 0x%x%x%x%x\n", data[0], data[1], data[2], data[3]);
+	printf("Input Key   : 0x%x%x%x%x\n", key[0], key[1], key[2], key[3]);
+	
+	// 3rd parameter 0 = decode
+	// 1 = encode
+	xtea(key, data, 1, e_data_out);
+	printf("Data : 0x%x%x%x%x\n", e_data_out[0], e_data_out[1], e_data_out[2], e_data_out[3]);
+	
+	xtea(key, data, 0, d_data_out);
+	printf("Data : 0x%x%x%x%x\n", d_data_out[0], d_data_out[1], d_data_out[2], d_data_out[3]);
 }
