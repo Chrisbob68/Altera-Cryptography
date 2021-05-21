@@ -11,7 +11,7 @@ State.output2 0 0 1 0 0 0 0 0 1
 State.output3 0 1 0 0 0 0 0 0 1 
 State.output4 1 0 0 0 0 0 0 0 1 
 
-State Machine - |xtea_top|xtea_dec:dec|State
+State Machine - |xtea_top|xtea_enc_dec:enc_dec|State
 Name State.OutputState State.ProcessStateD2E1 State.ProcessStateD1E2 State.StartState 
 State.StartState 0 0 0 0 
 State.ProcessStateD1E2 0 0 1 1 

@@ -2,4 +2,116 @@
 Timing Analyzer Summary
 ------------------------------------------------------------
 
+Type  : Slow 1100mV 85C Model Setup 'clk'
+Slack : -8.886
+TNS   : -1439.501
+
+Type  : Slow 1100mV 85C Model Hold 'clk'
+Slack : 0.369
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -192.157
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'key_data_valid'
+Slack : -0.080
+TNS   : -0.187
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'State.keydatain1'
+Slack : 0.159
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'State.keydatain2'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Slow 1100mV 85C Model Minimum Pulse Width 'State.keydatain3'
+Slack : 0.187
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Setup 'clk'
+Slack : -9.298
+TNS   : -1418.094
+
+Type  : Slow 1100mV 0C Model Hold 'clk'
+Slack : 0.158
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.394
+TNS   : -199.024
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'key_data_valid'
+Slack : -0.045
+TNS   : -0.045
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'State.keydatain2'
+Slack : 0.185
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'State.keydatain1'
+Slack : 0.191
+TNS   : 0.000
+
+Type  : Slow 1100mV 0C Model Minimum Pulse Width 'State.keydatain3'
+Slack : 0.216
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Setup 'clk'
+Slack : -5.036
+TNS   : -764.102
+
+Type  : Fast 1100mV 85C Model Hold 'clk'
+Slack : 0.043
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'key_data_valid'
+Slack : -0.270
+TNS   : -16.528
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'clk'
+Slack : -0.075
+TNS   : -14.250
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'State.keydatain2'
+Slack : 0.194
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'State.keydatain1'
+Slack : 0.223
+TNS   : 0.000
+
+Type  : Fast 1100mV 85C Model Minimum Pulse Width 'State.keydatain3'
+Slack : 0.240
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Setup 'clk'
+Slack : -4.413
+TNS   : -661.263
+
+Type  : Fast 1100mV 0C Model Hold 'clk'
+Slack : -0.069
+TNS   : -0.405
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'key_data_valid'
+Slack : -0.210
+TNS   : -12.740
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'clk'
+Slack : -0.078
+TNS   : -18.556
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'State.keydatain2'
+Slack : 0.251
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'State.keydatain1'
+Slack : 0.280
+TNS   : 0.000
+
+Type  : Fast 1100mV 0C Model Minimum Pulse Width 'State.keydatain3'
+Slack : 0.294
+TNS   : 0.000
+
 ------------------------------------------------------------
