@@ -13,7 +13,7 @@
 --##					second step of encoding. Combining these modules together saves space on the	##
 --##					FPGA.																									##
 --##                                                                                    			##
---## Dependencies: xtea_top.vhd, xtea_enc_dec.vhd                                       			##
+--## Dependencies: None									                                       			##
 --################################################################################################
 
 -- Library declarations

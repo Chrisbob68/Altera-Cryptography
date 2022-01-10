@@ -1,12 +1,12 @@
-Fitter Status : Successful - Fri May 21 15:11:53 2021
+Fitter Status : Successful - Sun May 23 17:41:21 2021
 Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
 Revision Name : CourseworkTask1
 Top-level Entity Name : xtea_top
 Family : Cyclone V
 Device : 5CSEMA5F31C6
 Timing Models : Final
-Logic utilization (in ALMs) : 480 / 32,070 ( 1 % )
-Total registers : 302
+Logic utilization (in ALMs) : 477 / 32,070 ( 1 % )
+Total registers : 304
 Total pins : 101 / 457 ( 22 % )
 Total virtual pins : 0
 Total block memory bits : 0 / 4,065,280 ( 0 % )

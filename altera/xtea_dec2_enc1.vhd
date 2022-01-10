@@ -13,7 +13,7 @@
 --##					first step of encoding. Combining these modules together saves space on the	##
 --##					FPGA.																									##
 --##                                                                                    			##
---## Dependencies: xtea_top.vhd, xtea_enc_dec.vhd                                       			##
+--## Dependencies: None									                                       			##
 --################################################################################################
 
 -- Library declarations
@@ -102,7 +102,6 @@ begin
 		when "11" =>
 			key_calc := sum + unsigned(key(31 DOWNTO 0));
 		when others =>
-
 	end case;
 	
 	-- Perform the XTEA algorithm to work out the amount to icrement z1 and z0 by based on the inputs.

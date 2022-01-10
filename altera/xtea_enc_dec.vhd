@@ -11,7 +11,7 @@
 --## 					pertaining to a step of the xtea algorithm. This result is then passed back	##
 --## 					the xtea top for final stage output processing.											##
 --##                                                                                    			##
---## Dependencies: xtea_top.vhd                                                        			##
+--## Dependencies: xtea_dec1_enc2.vhd, xtea_dec2_enc1.vhd                                			##
 --################################################################################################
 
 -- Library declarations
@@ -27,11 +27,10 @@ PORT(
 				reset_n			: IN  STD_LOGIC;
 				start				: IN  STD_LOGIC;	
 				dec_enc_flag 	: IN  STD_LOGIC;
-
-				key_in		: IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
-            data_in   : IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
+				key_in			: IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
+            data_in   		: IN  STD_LOGIC_VECTOR(127 DOWNTO 0);
 				
-            data_out  : OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
+            data_out  		: OUT STD_LOGIC_VECTOR(127 DOWNTO 0);
 				data_ready		: OUT STD_LOGIC
 );
 END ENTITY xtea_enc_dec;

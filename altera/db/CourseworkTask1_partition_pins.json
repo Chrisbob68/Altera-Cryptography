@@ -132,6 +132,10 @@
 					"strict" : false
 				},
 				{
+					"name" : "data_ready",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

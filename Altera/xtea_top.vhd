@@ -10,7 +10,7 @@
 --## concatenates values into 128 bit values in order to compute the XTEA algorithm more 			##
 --## efficiently.    																									##
 --##                                                                                    			##
---## Dependencies: None                                                        						##
+--## Dependencies: xtea_enc_dec.vhd, xtea_dec1_enc2.vhd, xtea_dec2_enc1.vhd    						##
 --################################################################################################
 
 -- Library declarations
